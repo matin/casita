@@ -58,8 +58,8 @@ gets re-ranked.
 CASITA_FIREBASE_PROJECT=your-project uv run casita publish --local
 ```
 
-To render against the live DB without deploying, use `uv run casita demo` or
-`uv run casita show` instead.
+To preview against the live DB without deploying, use `uv run casita show`.
+(`uv run casita demo` is the *offline fixture* path — it never touches the live DB.)
 
 ## Votes feed the ranker (don't hand-edit the prompt)
 
