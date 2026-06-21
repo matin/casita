@@ -3,7 +3,7 @@
 Two listings are the same property if:
 - both have lat/lng and they're within ~80m, AND
 - bed counts match (or one is None), AND
-- prices are within 15%.
+- prices are within 20%.
 
 Fallback when lat/lng is missing on one side: normalized street-address match.
 

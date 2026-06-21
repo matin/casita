@@ -31,6 +31,13 @@ PRIVATE_PATTERNS = {
 
 PERSONAL_NAME_PATTERN = re.compile(r"\b(Matin|Bibiana|matin|bibiana)\b")
 
+PUBLIC_PROJECT_REFERENCES = (
+    "https://github.com/matin/casita",
+    "https://matin.github.io/casita/",
+    "https://matin.github.io/casita",
+    "matin/casita",
+)
+
 TEXT_SUFFIXES = {
     ".md",
     ".py",
@@ -89,9 +96,16 @@ def _fixture_text(fixture: Path) -> str:
     return "\n".join(chunks)
 
 
+def _without_public_project_references(text: str) -> str:
+    for value in PUBLIC_PROJECT_REFERENCES:
+        text = text.replace(value, "")
+    return text
+
+
 def main() -> None:
     failures: list[str] = []
     for path, text in _iter_project_text():
+        text = _without_public_project_references(text)
         patterns = PRIVATE_PATTERNS.copy()
         patterns["personal names"] = PERSONAL_NAME_PATTERN
         for label, pattern in patterns.items():
@@ -100,7 +114,7 @@ def main() -> None:
                 failures.append(f"{rel}: matched {label}")
 
     for fixture in FIXTURES:
-        fixture_text = _fixture_text(fixture)
+        fixture_text = _without_public_project_references(_fixture_text(fixture))
         for label, pattern in {**PRIVATE_PATTERNS, "personal names": PERSONAL_NAME_PATTERN}.items():
             if pattern.search(fixture_text):
                 failures.append(f"{fixture.relative_to(ROOT)}: matched {label}")
