@@ -1,20 +1,44 @@
-.venv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
 .python-version
-.cache/
-.coverage
-.pytest_cache/
-.ruff_cache/
-htmlcov/
+.venv/
+*.egg-info/
+build/
 dist/
-tmp/
+
+# Tooling caches
+.cache/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Coverage
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Secrets / local env (keep .env.example tracked)
+.env
+.env.local
+.envrc
+.secrets/
+
+# Casita runtime artifacts
 casita.db
 casita.db-journal
 .chrome-profile/
 detail_cache/
 screenshots/
+tmp/
+
+# Docs build output
 site/
-.env
-.secrets/
+
+# Editor / OS
+.idea/
+.vscode/
 .DS_Store
+Thumbs.db
