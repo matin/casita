@@ -20,3 +20,23 @@ nav = [
 
 [project.theme]
 language = "en"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "indigo"
+accent = "indigo"
+
+[project.theme.palette.toggle]
+icon = "lucide/moon"
+name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "indigo"
+accent = "indigo"
+
+[project.theme.palette.toggle]
+icon = "lucide/sun"
+name = "Switch to light mode"
