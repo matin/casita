@@ -1,0 +1,65 @@
+[project]
+name = "casita"
+version = "0.1.0"
+description = "Personal rental search assistant with an offline demo fixture"
+readme = "README.md"
+authors = [
+    { name = "Casita contributors" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.14"
+keywords = ["rental-search", "playwright", "sqlite", "static-site", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "click>=8.3.3",
+    "google-cloud-storage>=2.18.0",
+    "google-genai>=2.3.0",
+    "httpx>=0.28.1",
+    "lxml>=6.1.0",
+    "markdownify>=1.2.2",
+    "playwright>=1.59.0",
+    "pydantic>=2.13.4",
+    "python-dotenv>=1.2.1",
+    "rich>=14.3.1",
+]
+
+[project.scripts]
+casita = "casita:main"
+
+[build-system]
+requires = ["uv_build>=0.11.14,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "zensical>=0.0.45",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore:datetime\\.datetime\\.utcnow\\(\\) is deprecated.*:DeprecationWarning:pydantic.main",
+    "ignore:'_UnionGenericAlias' is deprecated.*:DeprecationWarning:google.genai.types",
+]
+
+[tool.uv.build-backend]
+source-include = [
+    ".env.example",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "Makefile",
+    "docs/**",
+    "fixtures/**",
+    "scripts/**",
+    "tests/**",
+    "zensical.toml",
+]

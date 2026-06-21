@@ -1,0 +1,22 @@
+[project]
+site_name = "Casita"
+site_description = "How Casita searches, enriches, ranks, and renders rental listings."
+site_author = "Casita contributors"
+copyright = "Copyright &copy; 2026 Casita contributors"
+nav = [
+  { "Backstory" = "index.md" },
+  { "Getting Started" = "getting-started.md" },
+  { "How It Works" = [
+    { "Routing" = "how-it-works/routing.md" },
+    { "Photo Evaluation" = "how-it-works/photo-eval.md" },
+    { "Ranking" = "how-it-works/ranking.md" },
+    { "Learning" = "how-it-works/learning.md" },
+    { "Static Site" = "how-it-works/static-site.md" },
+  ] },
+  { "Architecture" = "architecture.md" },
+  { "Data Model" = "data-model.md" },
+  { "Scraping" = "scraping.md" },
+]
+
+[project.theme]
+language = "en"
